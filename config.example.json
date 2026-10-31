@@ -1,0 +1,13 @@
+{
+  "remote_ip": "203.0.113.10",
+  "tls_hostname": "share.example.com",
+  "remote_port": 1936,
+  "interface_index": 19,
+  "local_ip": "192.168.1.100",
+  "listen_port": 29350,
+  "obs_exe": "C:/Program Files/obs-studio/bin/64bit/obs64.exe",
+  "obs_profile": "PrivateShare",
+  "obs_collection": "PrivateShare",
+  "ws_url": "ws://127.0.0.1:4455",
+  "ws_password": "REPLACE_WITH_YOUR_LOCAL_OBS_WEBSOCKET_PASSWORD"
+}

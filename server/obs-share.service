@@ -1,0 +1,21 @@
+[Unit]
+Description=Private OBS screen sharing media server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=obs-share
+Group=obs-share
+WorkingDirectory=/opt/obs-share
+ExecStart=/opt/obs-share/mediamtx /opt/obs-share/config.yml
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=5
+MemoryMax=256M
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,52 @@
+logLevel: info
+rtmp: true
+rtmpEncryption: strict
+rtmpsAddress: :1936
+rtmpServerKey: /opt/obs-share/server.key
+rtmpServerCert: /opt/obs-share/server.crt
+rtsp: true
+rtspAddress: 127.0.0.1:8554
+rtspTransports: [tcp]
+hls: false
+srt: false
+moq: false
+api: true
+apiAddress: 127.0.0.1:9997
+webrtc: true
+webrtcAddress: 127.0.0.1:8889
+webrtcLocalUDPAddress: ''
+webrtcLocalTCPAddress: :8190
+webrtcIPsFromInterfaces: false
+webrtcAdditionalHosts: [203.0.113.10]
+webrtcAllowOrigins: ['https://share.example.com']
+webrtcTrustedProxies: [127.0.0.1]
+authInternalUsers:
+  - user: obs-publisher
+    pass: YOUR_PUBLISH_PASSWORD
+    permissions:
+      - action: publish
+        path: YOUR_RANDOM_STREAM_ID_in
+      - action: publish
+        path: YOUR_RANDOM_STREAM_ID
+  - user: any
+    permissions:
+      - action: read
+        path: YOUR_RANDOM_STREAM_ID
+  - user: any
+    ips: [127.0.0.1]
+    permissions:
+      - action: api
+      - action: read
+        path: YOUR_RANDOM_STREAM_ID_in
+paths:
+  YOUR_RANDOM_STREAM_ID_in:
+    source: publisher
+    overridePublisher: false
+    runOnReady: /opt/obs-share/audio-forward.sh
+    runOnReadyRestart: true
+    record: false
+  YOUR_RANDOM_STREAM_ID:
+    source: publisher
+    overridePublisher: false
+    maxReaders: 3
+    record: false

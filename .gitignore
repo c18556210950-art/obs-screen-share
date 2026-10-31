@@ -1,0 +1,10 @@
+config.json
+*.log
+__pycache__/
+.venv/
+*.exe
+*.dll
+*.tar.*
+*.wav
+.env
+credentials*
